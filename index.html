@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swastik Pattanayak — Business Analyst, BFSI &amp; Fintech</title>
+<meta name="description" content="Swastik Pattanayak — Business Analyst specializing in requirements, change management, and client delivery for Asset Management Companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ TOKENS ============ */
+  :root{
+    --ink:#13213A;
+    --ink-soft:#1C2D4D;
+    --parchment:#F4EFE3;
+    --paper:#FFFDF8;
+    --brass:#A9803F;
+    --brass-light:#C9A668;
+    --slate:#5B6472;
+    --slate-on-dark:#AEB9CC;
+    --line-light: rgba(19,33,58,0.12);
+    --line-dark: rgba(244,239,227,0.16);
+    --max: 1140px;
+    --gutter: clamp(1.25rem, 5vw, 4rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0;}
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:500;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding-left:var(--gutter);
+    padding-right:var(--gutter);
+  }
+
+  /* ============ FOCUS / A11Y ============ */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.25rem var(--gutter);
+    background:transparent;
+    transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  .nav.is-scrolled{
+    background:rgba(19,33,58,0.97);
+    padding-top:0.85rem;
+    padding-bottom:0.85rem;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:.55rem;
+  }
+  .nav-mark .ring{
+    width:10px;height:10px;border-radius:50%;
+    border:1.5px solid var(--brass-light);
+  }
+  .nav-links{
+    display:flex;
+    gap:2rem;
+    list-style:none;
+  }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--slate-on-dark);
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:#fff;}
+  .nav-toggle{display:none; background:none; border:0; color:#fff; font-size:1.5rem; cursor:pointer;}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; inset:0; top:0;
+      flex-direction:column;
+      background:var(--ink);
+      justify-content:center;
+      align-items:center;
+      gap:2.25rem;
+      transform:translateY(-100%);
+      transition:transform .35s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-links a{font-size:1rem;}
+    .nav-toggle{display:block; z-index:60;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    background:
+      radial-gradient(ellipse at 80% -10%, rgba(169,128,63,0.18), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color:var(--paper);
+    padding-top:7.5rem;
+    padding-bottom:4.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-doc-line{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--slate-on-dark);
+    padding-bottom:2.25rem;
+    margin-bottom:2.25rem;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .hero-doc-line span{color:var(--brass-light);}
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:clamp(2rem, 5vw, 4.5rem);
+    align-items:end;
+  }
+  .hero-text h1{
+    font-size:clamp(2.75rem, 6.5vw, 5rem);
+    line-height:0.98;
+    color:#fff;
+    margin-top:1rem;
+  }
+  .hero-text h1 em{
+    font-style:italic;
+    color:var(--brass-light);
+    font-weight:500;
+  }
+  .hero-lede{
+    margin-top:1.5rem;
+    max-width:32em;
+    font-size:1.08rem;
+    color:var(--slate-on-dark);
+  }
+  .hero-actions{
+    margin-top:2.25rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:0.85rem 1.5rem;
+    border-radius:2px;
+    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    display:inline-block;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+    font-weight:500;
+  }
+  .btn-primary:hover{background:var(--brass-light); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line-dark);
+    color:#fff;
+  }
+  .btn-ghost:hover{border-color:var(--brass-light); color:var(--brass-light); transform:translateY(-2px);}
+
+  .hero-facts{
+    margin-top:3rem;
+    display:grid;
+    grid-template-columns:repeat(3, auto);
+    gap:2rem;
+    max-width:30em;
+  }
+  .hero-facts div dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:0.35rem;
+  }
+  .hero-facts div dd{
+    margin:0;
+    font-size:0.95rem;
+    color:#fff;
+  }
+
+  .hero-photo{
+    position:relative;
+    margin:0;
+  }
+  .hero-photo .frame{
+    position:relative;
+    border:1px solid var(--line-dark);
+    padding:14px;
+  }
+  .hero-photo img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:center 18%;
+    filter:saturate(1.03) contrast(1.02);
+  }
+  .hero-photo figcaption{
+    margin-top:0.85rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--slate-on-dark);
+    display:flex;
+    justify-content:space-between;
+  }
+  .hero-photo .corner{
+    position:absolute;
+    width:18px; height:18px;
+    border:1.5px solid var(--brass-light);
+  }
+  .corner.tl{top:-1px; left:-1px; border-right:0; border-bottom:0;}
+  .corner.br{bottom:-1px; right:-1px; border-left:0; border-top:0;}
+
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr; align-items:start;}
+    .hero-photo{order:-1; max-width:280px;}
+    .hero-facts{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ============ SECTION SCAFFOLD ============ */
+  .section{
+    padding:5.5rem 0;
+  }
+  .section--light{background:var(--parchment); color:var(--ink);}
+  .section--dark{background:var(--ink); color:var(--paper);}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:1.25rem;
+    margin-bottom:2.75rem;
+  }
+  .clause{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.95rem;
+    color:var(--brass);
+    font-weight:500;
+  }
+  .section--dark .clause{color:var(--brass-light);}
+  .section-head h2{font-size:clamp(1.9rem, 3.5vw, 2.5rem);}
+  .section--light .section-head{border-bottom:1px solid var(--line-light); padding-bottom:1.5rem;}
+  .section--dark .section-head{border-bottom:1px solid var(--line-dark); padding-bottom:1.5rem;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  /* ============ PROFILE ============ */
+  .profile-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:clamp(2rem,5vw,4rem);
+  }
+  .profile-text{
+    font-size:1.12rem;
+    max-width:38em;
+  }
+  .profile-props{
+    border-left:1px solid var(--line-light);
+    padding-left:1.75rem;
+  }
+  .profile-props .prop{margin-bottom:1.4rem;}
+  .profile-props dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:0.3rem;
+  }
+  .profile-props dd{margin:0; color:var(--slate); font-size:0.95rem;}
+
+  @media (max-width:760px){
+    .profile-grid{grid-template-columns:1fr;}
+    .profile-props{border-left:0; border-top:1px solid var(--line-light); padding-left:0; padding-top:1.5rem;}
+  }
+
+  /* ============ EXPERIENCE ============ */
+  .timeline{display:flex; flex-direction:column;}
+  .role{
+    padding:2.25rem 0;
+    border-bottom:1px solid var(--line-dark);
+    display:grid;
+    grid-template-columns:0.9fr 2fr;
+    gap:2rem;
+  }
+  .timeline .role:last-child{border-bottom:0; padding-bottom:0;}
+  .role-meta .company{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:500;
+    color:#fff;
+  }
+  .role-meta .org-desc{
+    color:var(--slate-on-dark);
+    font-size:0.88rem;
+    margin-top:0.5rem;
+    line-height:1.5;
+  }
+  .role-meta .dates{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    letter-spacing:0.05em;
+    color:var(--brass-light);
+    margin-top:0.85rem;
+    display:block;
+  }
+  .role-title{
+    font-weight:600;
+    color:#fff;
+    margin-bottom:0.9rem;
+    font-size:1.02rem;
+  }
+  .role-list{list-style:none;}
+  .role-list li{
+    position:relative;
+    padding-left:1.2rem;
+    margin-bottom:0.7rem;
+    color:var(--slate-on-dark);
+    font-size:0.96rem;
+  }
+  .role-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top:0.55em;
+    width:6px;height:1px;
+    background:var(--brass-light);
+  }
+  .role-note{
+    margin-top:1.5rem;
+    font-size:0.78rem;
+    font-style:italic;
+    color:rgba(174,185,204,0.7);
+  }
+
+  @media (max-width:760px){
+    .role{grid-template-columns:1fr; gap:0.75rem;}
+  }
+
+  /* ============ CAPABILITIES ============ */
+  .cap-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:2.5rem 3rem;
+  }
+  .cap-group h3{
+    font-size:0.95rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    color:var(--brass);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:1rem;
+  }
+  .tags{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.55rem;
+  }
+  .tags li{
+    background:var(--paper);
+    border:1px solid var(--line-light);
+    padding:0.45rem 0.9rem;
+    font-size:0.85rem;
+    border-radius:3px;
+    color:var(--ink);
+  }
+  @media (max-width:760px){
+    .cap-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ RECOGNITION ============ */
+  .seal-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1.75rem;
+  }
+  .seal-card{
+    background:var(--ink-soft);
+    border:1px solid var(--line-dark);
+    padding:1.75rem;
+    display:flex;
+    gap:1.15rem;
+  }
+  .seal{
+    flex:none;
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1.5px solid var(--brass-light);
+    position:relative;
+    margin-top:2px;
+  }
+  .seal::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:50%;
+    border:1px dashed var(--brass-light);
+    opacity:0.6;
+  }
+  .seal-card h4{
+    font-size:1.02rem;
+    color:#fff;
+    margin-bottom:0.4rem;
+    line-height:1.3;
+  }
+  .seal-card p{
+    margin:0;
+    font-size:0.88rem;
+    color:var(--slate-on-dark);
+    line-height:1.55;
+  }
+  .seal-card .tag{
+    display:inline-block;
+    margin-top:0.6rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+  }
+  @media (max-width:760px){
+    .seal-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ EDUCATION ============ */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:1rem;
+    padding:1.75rem 0;
+    border-bottom:1px solid var(--line-light);
+  }
+  .edu-row:last-child{border-bottom:0;}
+  .edu-row h4{font-size:1.1rem; margin-bottom:0.3rem;}
+  .edu-row .school{color:var(--slate); font-size:0.92rem;}
+  .edu-row .when{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--brass);
+    white-space:nowrap;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:4.5rem 0 2.5rem;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:2.5rem;
+    border-bottom:1px solid var(--line-dark);
+    padding-bottom:2.5rem;
+    margin-bottom:1.75rem;
+  }
+  .footer h2{
+    font-size:clamp(1.9rem,4vw,2.75rem);
+    color:#fff;
+    max-width:14em;
+  }
+  .footer-links{display:flex; flex-direction:column; gap:1rem; align-items:flex-start;}
+  .footer-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.88rem;
+    letter-spacing:0.03em;
+    color:var(--slate-on-dark);
+    border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .footer-links a:hover{color:var(--brass-light); border-color:var(--brass-light);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:1rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    color:rgba(174,185,204,0.6);
+    text-transform:uppercase;
+  }
+
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+
+  <nav class="nav" id="siteNav">
+    <a href="#top" class="nav-mark"><span class="ring"></span> Swastik Pattanayak</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-doc-line">
+        <span>Ref. SP&ndash;BA&ndash;2026</span>
+        <span>File: Professional Dossier</span>
+        <span>Status: Open to new opportunities</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Business Analyst &mdash; BFSI &amp; Fintech</p>
+          <h1>Swastik<br><em>Pattanayak</em></h1>
+          <p class="hero-lede">I turn ambiguous business problems into requirements that ship. Three years inside India&rsquo;s capital-markets technology stack &mdash; writing the specs, chasing the change requests, and keeping Asset Management Company clients onside while the work gets done.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:swastik.pattanayak09@gmail.com">Get in touch</a>
+            <a class="btn btn-ghost" href="#experience">View experience</a>
+          </div>
+          <dl class="hero-facts">
+            <div><dt>Based in</dt><dd>Bhubaneswar, India</dd></div>
+            <div><dt>Currently</dt><dd>Business Analyst, KFintech</dd></div>
+            <div><dt>Languages</dt><dd>Odia, English, Hindi</dd></div>
+          </dl>
+        </div>
+        <figure class="hero-photo">
+          <div class="frame">
+            <span class="corner tl"></span><span class="corner br"></span>
+            <img src="assets/swastik-portrait.jpg" alt="Portrait of Swastik Pattanayak seated at his office desk">
+          </div>
+          <figcaption><span>Bhubaneswar Office</span><span>2026</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section--light" id="profile">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="clause">1.0</span>
+        <h2>Profile</h2>
+      </div>
+      <div class="profile-grid reveal">
+        <p class="profile-text">Business Analyst with 3+ years driving end-to-end project delivery for Asset Management Company clients within India&rsquo;s fintech and capital-markets ecosystem. My work sits at the intersection of requirements gathering, BRD/FRD development, change request governance, and the unglamorous BAU issue resolution that actually keeps clients happy. I&rsquo;m SQL-certified at the advanced level and treat data as something to be questioned, not just reported. Outside the day job, I&rsquo;ve kept a near-perfect academic and delivery track record &mdash; the kind that shows up in scholarships and a company-wide client-success award rather than in any one headline.</p>
+        <dl class="profile-props">
+          <div class="prop"><dt>Focus areas</dt><dd>Requirements &amp; BRD/FRD, Change Management, Stakeholder Management</dd></div>
+          <div class="prop"><dt>Industry</dt><dd>BFSI &mdash; Registrar &amp; Transfer Agency for AMCs</dd></div>
+          <div class="prop"><dt>Certified in</dt><dd>SQL (Advanced &amp; Intermediate) &mdash; HackerRank</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="clause">2.0</span>
+        <h2>Experience</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="role reveal">
+          <div class="role-meta">
+            <div class="company">KFin Technologies Ltd.</div>
+            <p class="org-desc">Leading Registrar &amp; Transfer Agent (RTA) delivering technology and operations services to Asset Management Companies across India.</p>
+            <span class="dates mono">Sep 2023 &ndash; Present &middot; India</span>
+          </div>
+          <div class="role-body">
+            <p class="role-title">Business Analyst</p>
+            <ul class="role-list">
+              <li>Lead end-to-end requirements gathering and BRD/FRD development for multiple AMC clients, translating complex business needs into clear functional specifications.</li>
+              <li>Manage the full project lifecycle &mdash; from requirement intake through implementation and delivery &mdash; coordinating technology and operations teams to keep client onboarding on schedule.</li>
+              <li>Streamlined change request intake and prioritization, cutting average turnaround time through structured documentation and clearer approval gates.</li>
+              <li>Resolve recurring BAU issues through root-cause analysis and process fixes, reducing repeat client escalations.</li>
+              <li>Oversee commercial charge management and billing accuracy across the client portfolio.</li>
+              <li>Coordinate UAT and delivery validation with client stakeholders ahead of production releases.</li>
+            </ul>
+            <p class="role-note">Recognized with KFintech&rsquo;s company-wide &ldquo;Values Award&rdquo; for Client Success, Q2 FY 2025&ndash;26.</p>
+          </div>
+        </article>
+
+        <article class="role reveal">
+          <div class="role-meta">
+            <div class="company">HighRadius</div>
+            <p class="org-desc">Global fintech SaaS company providing AI-powered order-to-cash and treasury automation solutions to enterprise finance teams.</p>
+            <span class="dates mono">Jul 2022 &ndash; Apr 2023 &middot; Bhubaneswar</span>
+          </div>
+          <div class="role-body">
+            <p class="role-title">Data Analyst</p>
+            <ul class="role-list">
+              <li>Analyzed large-scale financial transaction datasets within the Cash Application Automation platform, identifying patterns that informed cash-matching improvements.</li>
+              <li>Investigated remittance and invoice data trends to support evaluation of Remote Deposit Capture functionality.</li>
+              <li>Tested and validated data-prediction algorithms against historical transaction data ahead of production deployment.</li>
+              <li>Documented data requirements and validated outputs against business rules alongside engineering teams.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role reveal">
+          <div class="role-meta">
+            <div class="company">HighRadius</div>
+            <p class="org-desc">Global fintech SaaS company providing AI-powered order-to-cash and treasury automation solutions to enterprise finance teams.</p>
+            <span class="dates mono">Jan 2022 &ndash; Apr 2022 &middot; Bhubaneswar</span>
+          </div>
+          <div class="role-body">
+            <p class="role-title">Full Stack Web Developer &mdash; Intern</p>
+            <ul class="role-list">
+              <li>Built and deployed an AI-enabled fintech B2B cloud application end-to-end, covering requirements analysis, UI design, and backend architecture.</li>
+              <li>Designed data models and integrated machine learning components to power core application features.</li>
+              <li>Gained hands-on exposure to the full software development lifecycle, from requirement identification through deployment.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="capabilities">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="clause">3.0</span>
+        <h2>Capabilities</h2>
+      </div>
+      <div class="cap-grid reveal">
+        <div class="cap-group">
+          <h3>3.1 Business Analysis</h3>
+          <ul class="tags">
+            <li>Requirements Gathering</li><li>BRD/FRD Development</li><li>Functional Specifications</li><li>Gap Analysis</li><li>User Stories</li>
+          </ul>
+        </div>
+        <div class="cap-group">
+          <h3>3.2 Stakeholder Management</h3>
+          <ul class="tags">
+            <li>Client Communication</li><li>Cross-Functional Collaboration</li><li>Negotiation</li><li>Relationship Management</li>
+          </ul>
+        </div>
+        <div class="cap-group">
+          <h3>3.3 Delivery &amp; Process</h3>
+          <ul class="tags">
+            <li>Project Lifecycle Management</li><li>Change Management</li><li>UAT Coordination</li><li>Risk Management</li><li>Workflow Optimization</li>
+          </ul>
+        </div>
+        <div class="cap-group">
+          <h3>3.4 Data &amp; Tools</h3>
+          <ul class="tags">
+            <li>SQL (Advanced)</li><li>MS Excel</li><li>Data Visualization</li><li>Performance Analysis</li><li>Trend Analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="recognition">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="clause">4.0</span>
+        <h2>Recognition</h2>
+      </div>
+      <div class="seal-grid reveal">
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>KFintech Values Award &mdash; Client Success</h4>
+            <p>Awarded by the CEO &amp; MD for exemplifying integrity, dedication, and client-facing contribution, Q2 FY 2025&ndash;26.</p>
+            <span class="tag">Jan 2026</span>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>SQL (Advanced)</h4>
+            <p>Certified by HackerRank for advanced database querying and analytical problem-solving.</p>
+            <span class="tag">Jun 2026</span>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>SQL (Intermediate)</h4>
+            <p>Certified by HackerRank, validating intermediate-level SQL proficiency.</p>
+            <span class="tag">Jun 2026</span>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>Leading Teams: Developing as a Leader</h4>
+            <p>University of Illinois at Urbana-Champaign, via Coursera.</p>
+            <span class="tag">May 2023</span>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>High Performance Collaboration</h4>
+            <p>Leadership, Teamwork &amp; Negotiation &mdash; Northwestern University, Kellogg School of Management, via Coursera.</p>
+            <span class="tag">May 2023</span>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal"></span>
+          <div>
+            <h4>KIIT Merit Scholarships</h4>
+            <p>Two consecutive merit scholarships for academic rank &mdash; 2nd (CGPA 9.72) and 3rd (CGPA 9.70) &mdash; across the CSE batch of 2019&ndash;2023.</p>
+            <span class="tag">2022 &ndash; 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="education">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="clause">5.0</span>
+        <h2>Education</h2>
+      </div>
+      <div class="reveal">
+        <div class="edu-row">
+          <div>
+            <h4>Bachelor of Technology, Computer Science &amp; Engineering</h4>
+            <p class="school">Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar</p>
+          </div>
+          <span class="when mono">2019 &ndash; 2023</span>
+        </div>
+        <div class="edu-row">
+          <div>
+            <h4>Class XII &amp; Class X</h4>
+            <p class="school">ODM Public School, Bhubaneswar</p>
+          </div>
+          <span class="when mono">&mdash;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="footer-grid">
+        <h2>Let&rsquo;s talk about what your team is building.</h2>
+        <div class="footer-links">
+          <a href="mailto:swastik.pattanayak09@gmail.com">swastik.pattanayak09@gmail.com</a>
+          <a href="https://www.linkedin.com/in/swastik-pa-b475218b" target="_blank" rel="noopener">linkedin.com/in/swastik-pa-b475218b</a>
+          <a href="#top">Bhubaneswar, Odisha, India</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Swastik Pattanayak</span>
+        <span>Ref. SP&ndash;BA&ndash;2026</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+</body>
+</html>
